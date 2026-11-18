@@ -23,12 +23,16 @@ const SECTIONS = [
   },
 ]
 
+const TAG_STYLES = {
+  'Gluten-free': 'bg-gold-400 text-choc-900',
+  Bestseller: 'bg-syrup text-cream-50 ring-1 ring-gold-300/60',
+}
+
 function Tag({ children }) {
-  const glutenFree = children === 'Gluten-free'
   return (
     <span
       className={`ml-2 inline-block translate-y-[-1px] rounded-full px-2.5 py-0.5 align-middle text-[0.68rem] font-bold whitespace-nowrap ${
-        glutenFree ? 'bg-gold-400 text-choc-900' : 'bg-cream-100/15 text-gold-200'
+        TAG_STYLES[children] ?? 'bg-cream-100/15 text-gold-200'
       }`}
     >
       {children}

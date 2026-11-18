@@ -4,9 +4,9 @@ import LocationCard from './LocationCard.jsx'
 import { PhoneIcon, PinIcon, WhatsAppIcon } from './Icons.jsx'
 
 const NEARBY = [
-  'Two minutes from the Gachibowli flyover',
-  'Walkable from IIIT-H and the University of Hyderabad gate',
-  'Ten minutes from the Financial District',
+  'Ground floor of Syed Anwar Manzil, on the Miyapur main road',
+  'A short walk from Miyapur metro station',
+  'Ten minutes from Hafeezpet, Madinaguda and Chanda Nagar',
 ]
 
 export default function Visit() {

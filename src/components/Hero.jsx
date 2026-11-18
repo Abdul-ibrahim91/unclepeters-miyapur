@@ -16,7 +16,7 @@ function PriceRow({ item }) {
 }
 
 export default function Hero() {
-  const { isOpen, note } = useOpenStatus()
+  const { isOpen } = useOpenStatus()
   const { featured, alsoTonight } = showcase
   // If the photograph cannot be reached, the card falls back to plain glass.
   const [photoLoaded, setPhotoLoaded] = useState(true)
@@ -43,7 +43,7 @@ export default function Hero() {
               <span className="absolute inset-0 rounded-full bg-current opacity-60 motion-safe:animate-ping" />
               <span className="h-2 w-2 rounded-full bg-current" />
             </span>
-            <span className="text-cream-100">{note}</span>
+            <span className="text-cream-100">{site.hoursLabel}</span>
           </p>
 
           <h1
@@ -53,7 +53,7 @@ export default function Hero() {
           >
             Fluffy pancakes &amp; crispy waffles
             <span className="hero-subline mt-4 block text-[0.42em] leading-tight text-gold-300">
-              in {site.area}, open till 1 AM
+              in {site.area}, open till 11:30 PM
             </span>
           </h1>
 
@@ -62,8 +62,8 @@ export default function Hero() {
             style={{ '--reveal-delay': '220ms' }}
             className="mt-7 max-w-[38ch] text-[1.05rem] leading-relaxed text-cream-200/80 sm:text-lg"
           >
-            A small dessert counter off the Gachibowli flyover. Batter rested, griddled to order,
-            plated the minute it leaves the iron.
+            A small dessert counter at Syed Anwar Manzil, Miyapur. Batter rested, griddled to
+            order, plated the minute it leaves the iron.
           </p>
 
           <div
@@ -100,7 +100,7 @@ export default function Hero() {
             </span>
             <span className="flex items-center gap-2">
               <MoonIcon className="text-[1.05em] text-gold-400" />
-              Last orders 12:45 AM
+              Last orders {site.lastOrdersLabel}
             </span>
           </p>
         </div>
@@ -161,7 +161,7 @@ export default function Hero() {
                 <div className="on-photo relative p-6 sm:p-7">
                   <div className="flex items-center justify-between gap-4">
                     <p className="text-xs font-bold tracking-wide text-gold-200">
-                      Tonight at the counter
+                      Bestseller at the counter
                     </p>
                     <p className="flex items-center gap-1.5 text-xs font-semibold text-cream-200/80">
                       <span
@@ -176,13 +176,13 @@ export default function Hero() {
                     {featured.name}
                   </p>
                   <p className="mt-2.5 max-w-[30ch] text-[0.95rem] leading-relaxed text-cream-200/85">
-                    {featured.detail}. Finished with a maple pour at the table.
+                    {featured.detail}. Boxed at the counter, warm all the way home.
                   </p>
 
                   <p className="mt-5 flex items-baseline gap-2">
                     <span className="font-display text-4xl text-gold-300">₹{featured.price}</span>
                     <span className="text-xs font-semibold text-cream-200/70">
-                      stack of five, serves one generously
+                      our bestseller, easily shared between two
                     </span>
                   </p>
 

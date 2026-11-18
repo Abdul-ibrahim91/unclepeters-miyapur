@@ -20,8 +20,8 @@ const FACTS = [
   },
   {
     icon: MoonIcon,
-    title: 'Still serving at midnight',
-    body: 'Last orders at 12:45 AM, seven days a week. The late shift from the Financial District is half our dinner crowd.',
+    title: 'Still serving late',
+    body: 'Open daily till 11:30 PM, last orders at 11:15 PM. The after-dinner crowd from Miyapur and Hitec City is half our evening trade.',
   },
 ]
 

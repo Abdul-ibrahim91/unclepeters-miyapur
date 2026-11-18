@@ -37,7 +37,7 @@ function StreetPlan() {
         <path d="M304 -10V310" strokeWidth="7" />
       </g>
 
-      {/* the flyover, cutting across */}
+      {/* the main road, cutting across */}
       <path d="M-20 288L420 44" stroke="#52351D" strokeWidth="20" strokeLinecap="round" />
       <path
         d="M-20 288L420 44"
@@ -87,15 +87,15 @@ export default function LocationCard() {
       <div className="on-photo relative flex h-72 flex-col justify-between p-6 sm:h-80 sm:p-7">
         <p className="inline-flex w-fit items-center gap-2 rounded-full border border-gold-400/30 bg-choc-950/55 px-3 py-1.5 text-xs font-bold text-gold-200 backdrop-blur-sm">
           <PinIcon className="text-[1.1em]" />
-          {site.area}, {site.city}
+          {site.outletLabel}
         </p>
 
         <div>
           <p className="max-w-[28ch] text-[0.95rem] leading-relaxed text-cream-200/85">
-            Off the Gachibowli flyover, a two-minute walk from the main road junction.
+            On the Miyapur main road at Syed Anwar Manzil, a short walk from Miyapur metro.
           </p>
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Uncle+Peters+Pancakes+Gachibowli+Hyderabad"
+            href={site.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gold-400 px-4 py-3 font-display text-[0.9rem] text-choc-900 sm:gap-2.5 sm:px-5 sm:text-base shadow-plate transition duration-300 ease-out hover:bg-gold-300 motion-safe:hover:scale-[1.045] motion-safe:active:scale-[0.985]"

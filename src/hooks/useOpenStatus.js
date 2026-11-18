@@ -4,14 +4,17 @@ import { site } from '../site.js'
 const MINUTES_PER_DAY = 24 * 60
 
 function formatHour(hour24) {
-  const h = ((hour24 % 24) + 24) % 24
+  // Accepts half hours (23.5 = 11:30 PM) and hours past midnight (25 = 1 AM).
+  const totalMinutes = Math.round((((hour24 % 24) + 24) % 24) * 60)
+  const h = Math.floor(totalMinutes / 60)
+  const m = totalMinutes % 60
   const suffix = h >= 12 ? 'PM' : 'AM'
   const display = h % 12 === 0 ? 12 : h % 12
-  return `${display} ${suffix}`
+  return m === 0 ? `${display} ${suffix}` : `${display}:${String(m).padStart(2, '0')} ${suffix}`
 }
 
 /**
- * Live open/closed state for a kitchen that closes after midnight.
+ * Live open/closed state for the daily service window.
  * Returns the service window as a 0-1 progress value so the hours
  * timeline can show where "right now" sits on the griddle shift.
  */
@@ -19,7 +22,7 @@ function readStatus() {
   const now = new Date()
   const minutesNow = now.getHours() * 60 + now.getMinutes()
   const open = site.opensHour * 60
-  const close = site.closesHour * 60 // may exceed 24h, e.g. 1 AM = 1500
+  const close = site.closesHour * 60 // may exceed 24h for a past-midnight close
 
   // Minutes since today's opening, wrapping past-midnight into the same shift.
   let since = minutesNow - open

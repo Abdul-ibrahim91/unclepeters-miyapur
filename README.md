@@ -1,4 +1,4 @@
-# Uncle Peter's Pancakes — Gachibowli landing page
+# Uncle Peter's Pancakes — Miyapur landing page
 
 Single-page, mobile-first landing page built with React 19, Vite 7 and Tailwind CSS 4.
 
@@ -21,8 +21,11 @@ Real details live in two places and must be kept in step:
 | Coordinates | — | `geo.latitude`, `geo.longitude` |
 | Canonical domain | — | `canonical`, `og:url`, `og:image`, `twitter:image` |
 
-The phone (`+91 90000 00000`), WhatsApp number and street address (`Plot 00, Gachibowli Main
-Road`) are placeholders. Menu items and prices are plausible stand-ins — swap in the real board.
+Live outlet details are set for Miyapur: phone and WhatsApp `+91 72888 47515`, address `H.No:
+1-59/7/3/A, Ground Floor, Shop No. 1, Syed Anwar Manzil, Miyapur, Serilingampalle (M), Hyderabad,
+Telangana 500049`, open daily till 11:30 PM, Google rating 4.9. Still stand-ins: `geo` coordinates
+(area-level), `reviewCount`, and every menu item and price apart from the Nutella and Mango
+Pancake Box — swap in the real board.
 
 Also add a 1200×630 social preview image at `public/og-pancakes.jpg`; the meta tags already
 point at it.
@@ -42,7 +45,7 @@ load the card falls back to plain glass rather than breaking.
 | `src/site.js` | Business details, menu, reviews — the only file most edits need |
 | `src/index.css` | Design tokens (`@theme`), reveal animation, batter-edge and griddle styles |
 | `src/hooks/useScrollReveal.js` | IntersectionObserver that reveals `[data-reveal]` elements once |
-| `src/hooks/useOpenStatus.js` | Live open/closed state for a 9 AM – 1 AM shift that crosses midnight |
+| `src/hooks/useOpenStatus.js` | Live open/closed state for the 9 AM – 11:30 PM daily shift (half hours and past-midnight closes supported) |
 | `src/components/` | One file per section, plus the hero showcase card and the sticky action bar |
 
 ## Design notes
@@ -60,8 +63,8 @@ load the card falls back to plain glass rather than breaking.
   stays the voice for section headings, the logo and prices.
 - The page reads as a stack of griddle layers — chocolate, cream, chocolate, gold, cream — joined
   by poured-batter edges (`BatterEdge`).
-- The hours bar and every "open now" indicator are computed from the visitor's clock, so they
-  stay honest after midnight.
+- The hours bar and every "open now" indicator are computed from the visitor's clock against
+  `opensHour`/`closesHour` in `site.js`, so they stay honest.
 - `LocationCard` draws a stylised street plan in SVG instead of embedding Google Maps, which is
   blocked on some networks and renders as an empty frame. The real routing is the directions
   link, which opens Google Maps in a new tab.

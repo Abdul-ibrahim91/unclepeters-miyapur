@@ -8,9 +8,17 @@ export default function Reviews() {
     <section id="reviews" className="band-cream relative">
       <BatterEdge color="var(--color-gold-400)" />
       <div className="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 md:pb-24 md:pt-14">
-        <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+        <p
+          data-reveal
+          className="inline-flex items-center gap-2 rounded-full border border-syrup/30 bg-cream-50 px-3.5 py-1.5 text-xs font-bold text-choc-800"
+        >
+          <StarIcon className="text-[1.05em] text-gold-600" />
+          Verified Google Reviews ({site.rating.toFixed(1)} &#9733;)
+        </p>
+
+        <div className="mt-6 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
           <h2 data-reveal className="text-section max-w-[20ch] text-choc-900">
-            What {site.reviewCount} diners wrote down
+            What diners in {site.area} wrote down
           </h2>
           <div data-reveal style={{ '--reveal-delay': '80ms' }} className="text-choc-700">
             <Rating value={site.rating} count={site.reviewCount} className="text-choc-900" />

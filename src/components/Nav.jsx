@@ -47,7 +47,9 @@ export default function Nav() {
           <span className="font-display text-base leading-[0.9] tracking-tight sm:text-lg">
             Uncle Peter&apos;s
             <span className="block text-[0.68em] font-semibold text-gold-300">
-              Pancakes, {site.area}
+              {/* the full outlet label needs room; the area alone carries it on a phone */}
+              <span className="sm:hidden">Pancakes, {site.area}</span>
+              <span className="hidden sm:inline">Pancakes, {site.outletLabel}</span>
             </span>
           </span>
         </a>
@@ -68,7 +70,7 @@ export default function Nav() {
             aria-hidden="true"
           />
           {isOpen ? 'Open now' : 'Closed'}
-          <span className="hidden sm:inline">&nbsp;&middot; till 1 AM</span>
+          <span className="hidden sm:inline">&nbsp;&middot; {site.closingLabel}</span>
         </p>
       </nav>
     </header>

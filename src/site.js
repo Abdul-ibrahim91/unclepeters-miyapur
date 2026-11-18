@@ -1,35 +1,45 @@
 // ---------------------------------------------------------------------------
 // Single place to edit the outlet's real details.
-// Replace the phone number, WhatsApp number and street address before launch,
-// and mirror the same values in the JSON-LD block inside index.html.
+// This copy is set up for the Miyapur outlet (Syed Anwar Manzil).
+// Mirror any change here in the JSON-LD block inside index.html.
 // ---------------------------------------------------------------------------
 
 export const site = {
   name: "Uncle Peter's Pancakes",
-  area: 'Gachibowli',
+  area: 'Miyapur',
   city: 'Hyderabad',
+  // Shown as the outlet subtitle / location badge
+  outletLabel: 'Miyapur • Syed Anwar Manzil',
 
-  // TODO: replace with the outlet's real number
-  phoneDisplay: '+91 90000 00000',
-  phoneHref: 'tel:+919000000000',
+  phoneDisplay: '+91 72888 47515',
+  // Local form, as Google lists it
+  phoneDisplayLocal: '072888 47515',
+  phoneHref: 'tel:+917288847515',
 
-  // TODO: replace with the outlet's real WhatsApp number (country code, no +)
-  whatsappNumber: '919000000000',
-  whatsappText:
-    "Hi Uncle Peter's Pancakes, Gachibowli — I'd like to place an order for pickup/delivery.",
+  // WhatsApp number, country code, no +
+  whatsappNumber: '917288847515',
+  whatsappText: "Hi Uncle Peter's Pancakes Miyapur! I'd like to place a direct order:",
 
-  rating: 4.6,
+  rating: 4.9,
+  // TODO: confirm the live review count on the Google listing
   reviewCount: 134,
 
-  // Opening hours in 24h, closing after midnight is written as 25 = 1 AM
+  // Opening hours in 24h, half hours allowed (23.5 = 11:30 PM)
   opensHour: 9,
-  closesHour: 25,
+  closesHour: 23.5,
+  hoursLabel: 'Open Daily • Closes 11:30 PM',
+  closingLabel: 'Closes 11:30 PM',
+  lastOrdersLabel: '11:15 PM',
 
-  addressLines: ['Plot 00, Gachibowli Main Road', 'Gachibowli, Hyderabad 500032'],
+  addressLines: [
+    'H.No: 1-59/7/3/A, Ground Floor, Shop No. 1',
+    'Syed Anwar Manzil, Miyapur',
+    'Serilingampalle (M), Hyderabad, Telangana 500049',
+  ],
   mapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Uncle+Peters+Pancakes+Gachibowli+Hyderabad',
+    'https://www.google.com/maps/search/?api=1&query=Uncle+Peters+Pancakes+Miyapur+Hyderabad',
   reviewsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Uncle+Peters+Pancakes+Gachibowli+Hyderabad',
+    'https://www.google.com/maps/search/?api=1&query=Uncle+Peters+Pancakes+Miyapur+Hyderabad',
 }
 
 export const whatsappUrl = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
@@ -38,10 +48,15 @@ export const whatsappUrl = `https://wa.me/${site.whatsappNumber}?text=${encodeUR
 
 export const pancakes = [
   {
+    name: 'Nutella and Mango Pancake Box',
+    detail: 'Warm Nutella pour, fresh Alphonso mango, pancake bites to share',
+    price: 349,
+    tags: ['Bestseller'],
+  },
+  {
     name: 'Classic Buttermilk Stack',
     detail: 'Five pancakes, salted butter, warm maple syrup',
     price: 269,
-    tags: ['Most ordered'],
   },
   {
     name: 'Dark Chocolate Lava Stack',
@@ -100,24 +115,24 @@ export const sides = [
 export const reviews = [
   {
     quote:
-      'The buttermilk stack actually jiggles when the plate lands. Four of us came at midnight and the kitchen was still going strong.',
-    author: 'Sravanthi R.',
-    context: 'Google review',
+      'Taste, quantity, and quality is top notch and the service is also good. Definitely coming back!',
+    author: 'Local Foodie',
+    context: 'Verified Google review',
     stars: 5,
   },
   {
     quote:
-      'I am coeliac and I have never been able to order pancakes out. The oat stack came out on a separate griddle and tasted better than the regular one.',
-    author: 'Imran K.',
-    context: 'Google review',
+      'Good vibe, good customer handling, and nice ambience—cute chit-chat spot with friends in Miyapur.',
+    author: 'Cafe Lover',
+    context: 'Verified Google review',
     stars: 5,
   },
   {
     quote:
-      'Our post-shift spot. Walk in at 12:30 AM from the Financial District and the waffles are still fresh off the iron.',
-    author: 'Divya M.',
-    context: 'Google review',
-    stars: 4,
+      'Food taste is good and services are excellent! Loved the Nutella and Mango Pancake Box.',
+    author: 'Regular Guest',
+    context: 'Verified Google review',
+    stars: 5,
   },
 ]
 
@@ -125,8 +140,8 @@ export const reviews = [
 const byName = (list, needle) => list.find((item) => item.name.includes(needle))
 
 export const showcase = {
-  featured: byName(pancakes, 'Dark Chocolate Lava'),
-  alsoTonight: [byName(waffles, 'Sugar Waffle'), byName(pancakes, 'Gluten-Free Oat')],
+  featured: byName(pancakes, 'Nutella and Mango'),
+  alsoTonight: [byName(pancakes, 'Dark Chocolate Lava'), byName(pancakes, 'Gluten-Free Oat')],
 }
 
 // Photograph behind the hero showcase card.

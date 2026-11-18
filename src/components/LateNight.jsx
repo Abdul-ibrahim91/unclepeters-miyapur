@@ -3,13 +3,13 @@ import { useOpenStatus } from '../hooks/useOpenStatus.js'
 import BatterEdge from './BatterEdge.jsx'
 import { ClockIcon, MoonIcon, PhoneIcon } from './Icons.jsx'
 
-// 9 AM to 1 AM, written on a single 16-hour shift line
+// 9 AM to 11:30 PM, written on a single shift line
 const TICKS = [
   { hour: 9, label: '9 AM' },
   { hour: 13, label: '1 PM' },
   { hour: 17, label: '5 PM' },
-  { hour: 21, label: '9 PM', keepOnMobile: true },
-  { hour: 25, label: '1 AM' },
+  { hour: 20, label: '8 PM', keepOnMobile: true },
+  { hour: 23.5, label: '11:30 PM' },
 ]
 
 export default function LateNight() {
@@ -23,16 +23,15 @@ export default function LateNight() {
         <div className="grid gap-10 md:grid-cols-[1.15fr_1fr] md:items-end md:gap-14">
           <div>
             <h2 data-reveal className="text-section max-w-[16ch]">
-              The lights stay on till 1 AM
+              The lights stay on till 11:30 PM
             </h2>
             <p
               data-reveal
               style={{ '--reveal-delay': '90ms' }}
               className="mt-5 max-w-[46ch] text-[1.05rem] leading-relaxed text-choc-800"
             >
-              Seven nights a week. Walk in from a late shift in the Financial District, a film that
-              ran long, or a hostel kitchen that has nothing in it — the iron is hot and the batter
-              is fresh.
+              Seven nights a week. Walk in after a late shift in Hitec City, a film that ran long,
+              or an evening on the Miyapur main road — the iron is hot and the batter is fresh.
             </p>
           </div>
 
@@ -42,14 +41,16 @@ export default function LateNight() {
                 <ClockIcon className="text-[1.1em]" />
                 Every day
               </dt>
-              <dd className="mt-1 font-display text-2xl leading-tight">9 AM &ndash; 1 AM</dd>
+              <dd className="mt-1 font-display text-2xl leading-tight">9 AM &ndash; 11:30 PM</dd>
             </div>
             <div>
               <dt className="flex items-center gap-1.5 text-sm font-bold text-choc-700">
                 <MoonIcon className="text-[1.1em]" />
                 Last orders
               </dt>
-              <dd className="mt-1 font-display text-2xl leading-tight">12:45 AM</dd>
+              <dd className="mt-1 font-display text-2xl leading-tight">
+                {site.lastOrdersLabel}
+              </dd>
             </div>
           </dl>
         </div>
@@ -72,7 +73,7 @@ export default function LateNight() {
           <div
             className="relative mt-4 h-4 rounded-full bg-choc-900/15"
             role="img"
-            aria-label={`Today's service runs from 9 AM to 1 AM. ${note}.`}
+            aria-label={`Today's service runs from 9 AM to 11:30 PM. ${note}.`}
           >
             <div
               className="absolute inset-y-0 left-0 rounded-full bg-choc-900/75"
@@ -116,7 +117,7 @@ export default function LateNight() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 rounded-full bg-choc-900 px-6 py-3.5 font-display text-lg text-cream-50 transition-transform duration-200 hover:-translate-y-0.5 hover:bg-choc-800"
           >
-            Order a midnight stack
+            Order a late stack
           </a>
           <a
             href={site.phoneHref}

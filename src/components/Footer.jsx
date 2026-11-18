@@ -10,12 +10,10 @@ export default function Footer() {
           <div>
             <p className="font-display text-2xl text-cream-50">
               Uncle Peter&apos;s Pancakes
-              <span className="block text-base text-gold-300">
-                {site.area}, {site.city}
-              </span>
+              <span className="block text-base text-gold-300">{site.outletLabel}</span>
             </p>
             <p className="mt-4 max-w-[34ch] text-[0.95rem]">
-              Pancakes, waffles and cold brew from 9 AM to 1 AM, every day of the week.
+              Pancakes, waffles and cold brew from 9 AM to 11:30 PM, every day of the week.
             </p>
           </div>
 
@@ -36,7 +34,7 @@ export default function Footer() {
 
           <div className="grid gap-2 text-[0.95rem] font-semibold">
             <a className="hover:text-gold-300" href={site.phoneHref}>
-              {site.phoneDisplay}
+              {site.phoneDisplayLocal}
             </a>
             <a
               className="hover:text-gold-300"
